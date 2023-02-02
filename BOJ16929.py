@@ -9,8 +9,6 @@ cycle = False
 
 def dfs(pos, visited):
     global cycle
-    if cycle:
-        return
     visited.append(pos)
     x, y = pos
     for dx, dy in d:
@@ -20,6 +18,7 @@ def dfs(pos, visited):
             if board[nx][ny] == board[x][y]:
                 if len(visited) >= 4 and (nx, ny) == visited[0]:
                     cycle = True
+                    return
                 else:
                     if (nx, ny) not in visited:
                         dfs((nx, ny), visited.copy())
