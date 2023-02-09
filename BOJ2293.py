@@ -13,4 +13,4 @@ for i in coin:
     for j in range(i, k + 1):
         dp[j] += dp[j - i]
 
-print(dp[-1])
+print(dp[k])
